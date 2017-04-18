@@ -1,7 +1,7 @@
 # LLPhotoBrowser
 swift 3 图片浏览
 
-<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif" width="400" align="center">
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif" width="400" align="center"> <img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif" width="400" align="center">
 
 ## Issues
 如果使用过程中，有什么问题欢迎issues。
