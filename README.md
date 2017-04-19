@@ -85,9 +85,7 @@ browser.presentBrowserViewController()
 
 ## Future
 
-* 支持cocoapod管理
 * 支持本地图片显示及与网络图的混合显示
-* 支持系统UIPageControl位置设置
 
 ## Issues
 如果使用过程中，有什么问题欢迎issues。
