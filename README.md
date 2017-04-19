@@ -1,5 +1,7 @@
-# LLPhotoBrowser
-### Swift 3 图片浏览工具
+# Swift 3 图片浏览工具
+
+[![License](https://img.shields.io/cocoapods/l/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
+[![Platform](https://img.shields.io/cocoapods/p/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
 
 ## Support
 
