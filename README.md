@@ -1,5 +1,5 @@
 # LLPhotoBrowser
-## Swift 3 图片浏览工具
+### Swift 3 图片浏览工具
 
 ## Support
 
@@ -24,10 +24,10 @@ browser.presentBrowserViewController()
 ```
 
 ## <a id="图片正常浏览"></a>图片正常浏览
-![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif" width="414" height="720">
 
 ## <a id="检测设备横屏"></a>检测设备横屏
-![(检测设备横屏)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif)
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif" width="414" height="720">
 
 ```swift
 let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"]) { (index) in
@@ -38,10 +38,10 @@ browser.presentBrowserViewController()
 ```
 
 ## <a id="Action Sheet"></a>Action Sheet
-![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/actionsheet.gif" width="414" height="720">
 
 ## <a id="检测设备横屏 Action Sheet"></a>检测设备横屏 Action Sheet
-![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/actionsheetlandspace.gif" width="414" height="720">
 
 
 ## Update
