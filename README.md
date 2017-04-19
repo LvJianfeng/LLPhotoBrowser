@@ -47,10 +47,11 @@ browser.presentBrowserViewController()
 
 
 ## Update
-请使用最新版本 1.0.0
+请使用最新版本 1.0.1
 
 版本信息 | 更新描述
 ----    |  ------
+1.0.1   | * 增加支持网络图，本地图，UIImage同时使用<br>* HTTPString, UIImage, 文件名称String
 1.0.0   | * 项目初始化
 
 ## CocoaPods
