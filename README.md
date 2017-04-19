@@ -1,20 +1,48 @@
 # LLPhotoBrowser
-swift 3 图片浏览
-
-<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif" width="400" align="center"> <img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif" width="400" align="center">
-
-## Issues
-如果使用过程中，有什么问题欢迎issues。
+## Swift 3 图片浏览工具
 
 ## Support
 
 * 支持网络图片加载
-* 支持滑动查看
+* 支持图片放大缩小
+* 支持双击放大指定位置
+* 支持滑动查看及横屏切换图片
 * 支持当前页/总页数显示
 * 支持单击关闭
+* 支持长按弹出功能窗口
+* 支持自定义功能增加
 * 支持图片数据的延时加载
 * 支持没有数据，占位图占位
 * 支持非物理横屏看图
+
+## Demo
+
+```swift
+let browser = LLPhotoBrowserViewController.init(photoArray: data currentIndex: indexPath.row)
+// 模态弹出
+browser.presentBrowserViewController()
+```
+
+## <a id="图片正常浏览"></a>图片正常浏览
+![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+
+## <a id="检测设备横屏"></a>检测设备横屏
+![(检测设备横屏)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif)
+
+```swift
+let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"]) { (index) in
+  print(index)
+}
+// 模态弹出
+browser.presentBrowserViewController()
+```
+
+## <a id="Action Sheet"></a>Action Sheet
+![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+
+## <a id="检测设备横屏 Action Sheet"></a>检测设备横屏 Action Sheet
+![(图片正常浏览)](https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/demo.gif)
+
 
 ## Update
 请使用最新版本 1.0.0
@@ -40,6 +68,9 @@ browser.presentBrowserViewController()
 * 支持cocoapod管理
 * 支持本地图片显示及与网络图的混合显示
 * 支持系统UIPageControl位置设置
+
+## Issues
+如果使用过程中，有什么问题欢迎issues。
 
 ## Author
 
