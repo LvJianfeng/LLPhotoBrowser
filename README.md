@@ -94,6 +94,23 @@ let browser = LLPhotoBrowserViewController.init(photoArray: <#数组([LLBrowserM
 // 模态弹出
 browser.presentBrowserViewController()
 ```
+### 支持类型，你可以这么玩
+
+```swift
+/// 1.0.1版本 数据源
+let bigUrlArray1_0_1: [Any?] = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
+                                 // 文件名称
+                                 "timg",
+                                 "timg-1",
+                                 // URL
+                                 "http://img1a.xgo-img.com.cn/pics/2153/b2152556.jpg",
+                                 "http://4493bz.1985t.com/uploads/allimg/140826/3-140R6142K1.jpg",
+                                 // UIImage
+                                 UIImage.init(named: "timg-5"),
+                                 UIImage.init(named: "timg-7"),
+                                 // URL
+                                 "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5115546.jpg"]
+```
 
 ## Example
 
