@@ -15,6 +15,23 @@ let k_LL_ScreenHeight = UIScreen.main.bounds.size.height
 
 /// Image Object
 open class LLBrowserModel: NSObject {
+    // Data
+    open var data: Any? = nil {
+        didSet {
+            if data is UIImage {
+                image = data as? UIImage
+            }else if data is String {
+                if (data as! String).hasPrefix("http") {
+                    imageURL = data as? String
+                }else{
+                    image = UIImage.init(named: data as! String)
+                }
+            }else{
+                image = UIImage.init(named: "LLPhotoBrowser.bundle/ll_placeholder")
+            }
+        }
+    }
+    
     // URL
     open var imageURL: String? = nil
     
