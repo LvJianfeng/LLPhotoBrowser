@@ -53,6 +53,11 @@ browser.presentBrowserViewController()
 ----    |  ------
 1.0.0   | * 项目初始化
 
+## CocoaPods
+* 支持CocoaPods
+```ruby
+pod 'LLPhotoBrowser' 
+```
 
 ## Usage
 ### 简单的图片浏览
