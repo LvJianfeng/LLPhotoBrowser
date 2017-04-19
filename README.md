@@ -55,8 +55,21 @@ browser.presentBrowserViewController()
 
 
 ## Usage
+### 简单的图片浏览
+
 ```swift
-let browser = LLPhotoBrowserViewController.init(photoArray: <#LLBrowserModel#>, currentIndex: <#row#>)
+let browser = LLPhotoBrowserViewController.init(photoArray: <#数组([LLBrowserModel])#>, currentIndex: <#当前索引(row)#>)
+// 模态弹出
+browser.presentBrowserViewController()
+```
+
+### 支持长按弹出AcitonSheet工具
+
+```swift
+let browser = LLPhotoBrowserViewController.init(photoArray: <#数组([LLBrowserModel])#>, currentIndex: <#当前索引(row)#>, sheetTitileArray: <#工具菜单标题([String])#>) { (<#点击工具菜单下标#>) in
+  // 点击事件处理
+  print("ActionSheet点击-->下标=\(index)")
+}
 // 模态弹出
 browser.presentBrowserViewController()
 ```
