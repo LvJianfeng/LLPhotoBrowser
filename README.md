@@ -5,6 +5,7 @@
 
 ## Support
 
+* 支持网络图，本地图，UIImage同时使用
 * 支持网络图片加载
 * 支持图片放大缩小
 * 支持双击放大指定位置
@@ -61,6 +62,20 @@ pod 'LLPhotoBrowser'
 ```
 
 ## Usage
+### 对象封装(见Demo里LLCollectionViewController.swift)
+```swift
+var data: [LLBrowserModel] = []
+for index in 0..<bigUrlArray1_0_1.count {
+  let cell: LLCollectionViewCell? = collectionView.cellForItem(at: IndexPath.init(row: index, section: 0)) as? LLCollectionViewCell
+  let model = LLBrowserModel.init()
+  model.data = bigUrlArray1_0_1[index]
+  if let c = cell {
+    model.sourceImageView = c.ll_imageView
+  }
+  data.append(model)
+}
+```
+
 ### 简单的图片浏览
 
 ```swift
@@ -83,10 +98,6 @@ browser.presentBrowserViewController()
 ## Example
 
 示例代码见LLCollectionViewController.swift
-
-## Future
-
-* 支持本地图片显示及与网络图的混合显示
 
 ## Issues
 如果使用过程中，有什么问题欢迎issues。
