@@ -112,6 +112,10 @@ let bigUrlArray1_0_1: [Any?] = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0
                                  "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5115546.jpg"]
 ```
 
+## Future
+
+* 检测二维码
+
 ## Example
 
 示例代码见LLCollectionViewController.swift
