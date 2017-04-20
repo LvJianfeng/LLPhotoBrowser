@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
-public typealias LLDidActionSheetAction = (NSInteger) -> Void
+public typealias LLDidActionSheetAction = (NSInteger, UIImageView, String?) -> Void
 
 let k_LL_ScreenWidth = UIScreen.main.bounds.size.width
 let k_LL_ScreenHeight = UIScreen.main.bounds.size.height
+let k_LL_QRCodeTitle = "识别图中二维码"
 
 /// Image Object
 open class LLBrowserModel: NSObject {
@@ -60,7 +62,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     fileprivate var currentIndex: NSInteger = 0
     
     /// ActionSheet Title Array
-    fileprivate var sheetTitileArray: [String]?
+    fileprivate var sheetTitileArray: [String]? = []
     
     /// Show Current Index Label
     fileprivate var currentIndexLabel: UILabel?
@@ -73,6 +75,9 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     /// UIDeviceOrientation
     fileprivate var currentOrientation: UIDeviceOrientation?
+    
+    /// Can Use QRCode Default false
+    fileprivate var isOpenQRCodeCheck: Bool = false
     
     /// Collection View
     open var collectView: UICollectionView?
@@ -99,12 +104,13 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     fileprivate let browserSpace: CGFloat = 20.0
 
     /// Init With Data
-    public init(photoArray: [LLBrowserModel], currentIndex: NSInteger, sheetTitileArray: [String]? = nil, didActionSheet: LLDidActionSheetAction? = nil) {
+    public init(photoArray: [LLBrowserModel], currentIndex: NSInteger, sheetTitileArray: [String]? = nil, isOpenQRCodeCheck: Bool = false, didActionSheet: LLDidActionSheetAction? = nil) {
         self.photoArray = photoArray
         self.currentIndex = currentIndex
         self.sheetTitileArray = sheetTitileArray
         self.isEqualRatio = true
         self.isFirstOpen = true
+        self.isOpenQRCodeCheck = isOpenQRCodeCheck
         self.screenWidth = k_LL_ScreenWidth
         self.screenHeight = k_LL_ScreenHeight
         self.currentOrientation = UIDeviceOrientation.portrait
@@ -369,7 +375,24 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
             browserActionSheet = nil
         }
         
-        guard let titleArray = sheetTitileArray, titleArray.count > 0 else {
+        var qrcodeString: String? = nil
+        if isOpenQRCodeCheck {
+            /// 没有使用异步，是因为不确定sheetTitileArray是否使用，如果没有使用，弹出来的仅先显示取消，显得太突兀了。
+            /// 如有需求或者疑问可以issues
+            qrcodeString = findAvailableQRCode(imageView: (cell.zoomScrollView?.zoomImageView)!)
+            
+            if let _ = qrcodeString {
+                if !(sheetTitileArray?.contains(k_LL_QRCodeTitle))! {
+                    sheetTitileArray?.append(k_LL_QRCodeTitle)
+                }
+            }else{
+                if (sheetTitileArray?.contains(k_LL_QRCodeTitle))! {
+                    sheetTitileArray?.remove(at: (sheetTitileArray?.index(of: k_LL_QRCodeTitle))!)
+                }
+            }
+        }
+        
+        guard (sheetTitileArray?.count)! > 0 else {
             return
         }
         
@@ -379,7 +402,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         }
         
         browserActionSheet = LLBrowserActionSheet.init(titleArray: sheetTitileArray!, cancelTitle: "取消", didSelectedCell: { [weak self] (index) in
-            self?.didActionSheetSelected!(index)
+            self?.didActionSheetSelected!(index, (cell.zoomScrollView?.zoomImageView)!, qrcodeString)
         })
         browserActionSheet?.show(backView!)
     }
@@ -398,5 +421,16 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     func hide() {
         remindView?.hide()
+    }
+    
+    // MARK: CIDetector
+    func findAvailableQRCode(imageView: UIImageView) -> String? {
+        let detector: CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
+        let ciImage: CIImage = CIImage.init(image: imageView.image!)!
+        let features = detector.features(in: ciImage)
+        for feature in features as! [CIQRCodeFeature] {
+            return feature.messageString ?? nil
+        }
+        return nil
     }
 }

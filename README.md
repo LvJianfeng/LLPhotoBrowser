@@ -5,6 +5,7 @@
 
 ## Support
 
+* 支持检测二维码
 * 支持网络图，本地图，UIImage同时使用
 * 支持网络图片加载
 * 支持图片放大缩小
@@ -20,9 +21,17 @@
 
 ## Demo
 
+## <a id="二维码检测"></a>二维码检测
+<img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/qrcode.gif" width="414" height="720">
+
 ```swift
-let browser = LLPhotoBrowserViewController.init(photoArray: data currentIndex: indexPath.row)
-// 模态弹出
+let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"], isOpenQRCodeCheck: true) { (index, imageView, qrcodeString) in
+  print("ActionSheet点击-->下标=\(index); ImageView:\(imageView); qrcodeString:\(String(describing: qrcodeString))")
+
+  if let qrcode = qrcodeString {
+    UIAlertView.init(title: "二维码地址", message: qrcode, delegate: self, cancelButtonTitle: "取消").show()
+}
+}
 browser.presentBrowserViewController()
 ```
 
@@ -33,9 +42,7 @@ browser.presentBrowserViewController()
 <img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/landspace.gif" width="414" height="720">
 
 ```swift
-let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"]) { (index) in
-  print(index)
-}
+let browser = LLPhotoBrowserViewController.init(photoArray: data currentIndex: indexPath.row)
 // 模态弹出
 browser.presentBrowserViewController()
 ```
@@ -46,12 +53,20 @@ browser.presentBrowserViewController()
 ## <a id="检测设备横屏 Action Sheet"></a>检测设备横屏 Action Sheet
 <img src="https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/actionsheetlandspace.gif" width="414" height="720">
 
+```swift
+let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"]) { (index, imageView, qrcodeString) in
+  print(index)
+}
+// 模态弹出
+browser.presentBrowserViewController()
+```
 
 ## Update
-请使用最新版本 1.0.1
+请使用最新版本 1.0.2
 
 版本信息 | 更新描述
 ----    |  ------
+1.0.2   | * 增加图片中二维码检测，目前仅支持单个链接二维码
 1.0.1   | * 增加支持网络图，本地图，UIImage同时使用<br>* HTTPString, UIImage, 文件名称String
 1.0.0   | * 项目初始化
 
@@ -87,14 +102,15 @@ browser.presentBrowserViewController()
 ### 支持长按弹出AcitonSheet工具
 
 ```swift
-let browser = LLPhotoBrowserViewController.init(photoArray: <#数组([LLBrowserModel])#>, currentIndex: <#当前索引(row)#>, sheetTitileArray: <#工具菜单标题([String])#>) { (<#点击工具菜单下标#>) in
+let browser = LLPhotoBrowserViewController.init(photoArray: <#数组([LLBrowserModel])#>, currentIndex: <#当前索引(row)#>, sheetTitileArray: <#工具菜单标题([String])#>) { (<#点击工具菜单下标#>, <#当前显示的imageView#>, <#二维码结果返回#>) in
   // 点击事件处理
   print("ActionSheet点击-->下标=\(index)")
 }
 // 模态弹出
 browser.presentBrowserViewController()
 ```
-### 支持类型，你可以这么玩
+
+### 支持类型，你可以这么玩1.0.1
 
 ```swift
 /// 1.0.1版本 数据源
@@ -112,9 +128,20 @@ let bigUrlArray1_0_1: [Any?] = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0
                                  "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5115546.jpg"]
 ```
 
-## Future
+### 是否开启二维码检测1.0.2
 
-* 检测二维码
+```swift
+let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"], isOpenQRCodeCheck: true) { (index, imageView, qrcodeString) in
+  print("ActionSheet点击-->下标=\(index); ImageView:\(imageView); qrcodeString:\(String(describing: qrcodeString))")
+
+  if let qrcode = qrcodeString {
+    UIAlertView.init(title: "二维码地址", message: qrcode, delegate: self, cancelButtonTitle: "取消").show()
+}
+}
+browser.presentBrowserViewController()
+```
+
+<!-- ## Future -->
 
 ## Example
 

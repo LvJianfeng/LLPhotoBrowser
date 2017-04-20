@@ -50,7 +50,9 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
                         "http://4493bz.1985t.com/uploads/allimg/141024/3-141024105111.jpg"]
     
     /// 1.0.1 数据源
-    let bigUrlArray1_0_1: [Any?] = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
+    let bigUrlArray1_0_1: [Any?] = [ "taobao",
+                                     "baidu",
+                        "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
                         "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303245992681.jpg",
                         "http://car1.autoimg.cn/upload/spec/8550/1024x0_1_q87_20110604123334815123.jpg",
                         "http://car0.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144828435240.jpg",
@@ -161,8 +163,12 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
             data.append(model)
         }
         
-        let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"]) { (index) in
-            print("ActionSheet点击-->下标=\(index)")
+        let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"], isOpenQRCodeCheck: true) { (index, imageView, qrcodeString) in
+            print("ActionSheet点击-->下标=\(index); ImageView:\(imageView); qrcodeString:\(String(describing: qrcodeString))")
+            
+            if let qrcode = qrcodeString {
+                UIAlertView.init(title: "二维码地址", message: qrcode, delegate: self, cancelButtonTitle: "取消").show()
+            }
         }
         browser.presentBrowserViewController()
     }
