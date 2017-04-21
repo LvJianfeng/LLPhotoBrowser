@@ -75,6 +75,10 @@ browser.presentBrowserViewController()
 ```ruby
 pod 'LLPhotoBrowser' 
 ```
+#### 使用注意：
+```swift
+import LLPhotoBrowser
+```
 
 ## Usage
 ### 对象封装(见Demo里LLCollectionViewController.swift)
