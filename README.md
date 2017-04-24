@@ -71,14 +71,10 @@ browser.presentBrowserViewController()
 1.0.0   | * 项目初始化
 
 ## CocoaPods
-* 支持CocoaPods
-```ruby
-pod 'LLPhotoBrowser' 
-```
-#### 使用注意：
-```swift
-import LLPhotoBrowser
-```
+
+- Add `pod "LLPhotoBrowser"` to your Podfile.
+- Run `pod install` or `pod update`.
+- import LLPhotoBrowser
 
 ## Usage
 ### 对象封装(见Demo里LLCollectionViewController.swift)
