@@ -74,7 +74,7 @@ browser.presentBrowserViewController()
 
 - Add `pod "LLPhotoBrowser"` to your Podfile.
 - Run `pod install` or `pod update`.
-- import LLPhotoBrowser
+- Add `import LLPhotoBrowser`
 
 ## Usage
 ### 对象封装(见Demo里LLCollectionViewController.swift)
