@@ -11,10 +11,11 @@ import Kingfisher
 
 private let reuseIdentifier = "LLCollectionViewCell"
 
-class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIAlertViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    fileprivate var browser: LLPhotoBrowserViewController?
     
     /// 1.0.0 数据源
     let bigUrlArray1_0_0  = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
@@ -163,18 +164,26 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
             data.append(model)
         }
         
-        let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"], isOpenQRCodeCheck: true) { (index, imageView, qrcodeString) in
+        browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: indexPath.row, sheetTitileArray: ["分享给朋友","保存到相册"], isOpenQRCodeCheck: true) { (index, imageView, qrcodeString) in
             print("ActionSheet点击-->下标=\(index); ImageView:\(imageView); qrcodeString:\(String(describing: qrcodeString))")
             
             if let qrcode = qrcodeString {
-                UIAlertView.init(title: "二维码地址", message: qrcode, delegate: self, cancelButtonTitle: "取消").show()
+                UIAlertView.init(title: "二维码地址", message: qrcode, delegate: self, cancelButtonTitle: "跳转").show()
             }
+            
         }
-        browser.presentBrowserViewController()
+        browser?.presentBrowserViewController()
     }
 
     @IBAction func clear(_ sender: Any) {
         ImageCache.default.clearDiskCache()
         ImageCache.default.clearMemoryCache()
+    }
+    
+    // MARK: UIAlertViewDelegate
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        browser?.dismiss(animated: false, completion: {
+            self.navigationController?.pushViewController(LLSecondViewController(), animated: true)
+        })
     }
 }

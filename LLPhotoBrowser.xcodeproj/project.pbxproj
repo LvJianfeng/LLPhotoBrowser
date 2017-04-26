@@ -24,6 +24,7 @@
 		3FB8AD6E1EA6F06F00B283FE /* LLBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD661EA6F06F00B283FE /* LLBrowserCollectionViewCell.swift */; };
 		3FB8AD6F1EA6F06F00B283FE /* LLBrowserActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD671EA6F06F00B283FE /* LLBrowserActionSheet.swift */; };
 		3FB8AD711EA7038700B283FE /* LLRemindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD701EA7038700B283FE /* LLRemindView.swift */; };
+		3FDA27151EB09B2700A1F3E3 /* LLSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA27141EB09B2700A1F3E3 /* LLSecondViewController.swift */; };
 		A7EF4FFB9D0751C9BBC0D884 /* Pods_LLPhotoBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8551CBCA2C83970B05FDAA3F /* Pods_LLPhotoBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		3FB8AD661EA6F06F00B283FE /* LLBrowserCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLBrowserCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FB8AD671EA6F06F00B283FE /* LLBrowserActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLBrowserActionSheet.swift; sourceTree = "<group>"; };
 		3FB8AD701EA7038700B283FE /* LLRemindView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLRemindView.swift; sourceTree = "<group>"; };
+		3FDA27141EB09B2700A1F3E3 /* LLSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLSecondViewController.swift; sourceTree = "<group>"; };
 		8551CBCA2C83970B05FDAA3F /* Pods_LLPhotoBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLPhotoBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8737BD74CE7E47606BF85E5B /* Pods-LLPhotoBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLPhotoBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LLPhotoBrowser/Pods-LLPhotoBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +91,12 @@
 				3F31975C1E9F15AC005FD654 /* AppDelegate.swift */,
 				3F3197601E9F15AC005FD654 /* Main.storyboard */,
 				3F3197631E9F15AC005FD654 /* Assets.xcassets */,
-				3F3197651E9F15AC005FD654 /* LaunchScreen.storyboard */,
 				3F3197681E9F15AC005FD654 /* Info.plist */,
+				3F3197651E9F15AC005FD654 /* LaunchScreen.storyboard */,
 				3F84DD0F1EA06F2D00C5ADF9 /* LLCollectionViewController.swift */,
 				3F84DD111EA077F300C5ADF9 /* LLCollectionViewCell.swift */,
 				3F84DD121EA077F300C5ADF9 /* LLCollectionViewCell.xib */,
+				3FDA27141EB09B2700A1F3E3 /* LLSecondViewController.swift */,
 			);
 			path = LLPhotoBrowser;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB8AD681EA6F06F00B283FE /* LLUIImageScale.swift in Sources */,
+				3FDA27151EB09B2700A1F3E3 /* LLSecondViewController.swift in Sources */,
 				3FB8AD6A1EA6F06F00B283FE /* LLLayout.swift in Sources */,
 				3FB8AD6B1EA6F06F00B283FE /* LLBrowserZoomScrollView.swift in Sources */,
 				3FB8AD6C1EA6F06F00B283FE /* LLBrowserViewController.swift in Sources */,
@@ -398,7 +402,7 @@
 				INFOPLIST_FILE = LLPhotoBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LvJianfeng.LLPhotoBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LvJianfeng.Fanread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -414,7 +418,7 @@
 				INFOPLIST_FILE = LLPhotoBrowser/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LvJianfeng.LLPhotoBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LvJianfeng.Fanread;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
