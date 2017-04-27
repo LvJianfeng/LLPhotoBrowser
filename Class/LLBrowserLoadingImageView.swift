@@ -20,7 +20,7 @@ class LLBrowserLoadingImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        image = UIImage.init(named: "LLPhotoBrowser.bundle/ll_browserLoading")
+        image = LLAssetManager.image("ll_browserLoading")
     }
     
     required init?(coder aDecoder: NSCoder) {

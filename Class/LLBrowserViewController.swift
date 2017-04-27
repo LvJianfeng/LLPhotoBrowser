@@ -29,7 +29,7 @@ open class LLBrowserModel: NSObject {
                     image = UIImage.init(named: data as! String)
                 }
             }else{
-                image = UIImage.init(named: "LLPhotoBrowser.bundle/ll_placeholder")
+                image = LLAssetManager.image("ll_placeholder")
             }
         }
     }

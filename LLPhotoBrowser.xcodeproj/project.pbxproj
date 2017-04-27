@@ -15,6 +15,7 @@
 		3F84DD101EA06F2D00C5ADF9 /* LLCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84DD0F1EA06F2D00C5ADF9 /* LLCollectionViewController.swift */; };
 		3F84DD131EA077F300C5ADF9 /* LLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F84DD111EA077F300C5ADF9 /* LLCollectionViewCell.swift */; };
 		3F84DD141EA077F300C5ADF9 /* LLCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F84DD121EA077F300C5ADF9 /* LLCollectionViewCell.xib */; };
+		3F90DEEE1EB20D0700ACA5EA /* LLAssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90DEED1EB20D0700ACA5EA /* LLAssetManager.swift */; };
 		3FB8AD681EA6F06F00B283FE /* LLUIImageScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD601EA6F06F00B283FE /* LLUIImageScale.swift */; };
 		3FB8AD691EA6F06F00B283FE /* LLPhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD611EA6F06F00B283FE /* LLPhotoBrowserViewController.swift */; };
 		3FB8AD6A1EA6F06F00B283FE /* LLLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AD621EA6F06F00B283FE /* LLLayout.swift */; };
@@ -40,6 +41,7 @@
 		3F84DD0F1EA06F2D00C5ADF9 /* LLCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCollectionViewController.swift; sourceTree = "<group>"; };
 		3F84DD111EA077F300C5ADF9 /* LLCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCollectionViewCell.swift; sourceTree = "<group>"; };
 		3F84DD121EA077F300C5ADF9 /* LLCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCollectionViewCell.xib; sourceTree = "<group>"; };
+		3F90DEED1EB20D0700ACA5EA /* LLAssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLAssetManager.swift; sourceTree = "<group>"; };
 		3FB8AD601EA6F06F00B283FE /* LLUIImageScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLUIImageScale.swift; sourceTree = "<group>"; };
 		3FB8AD611EA6F06F00B283FE /* LLPhotoBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLPhotoBrowserViewController.swift; sourceTree = "<group>"; };
 		3FB8AD621EA6F06F00B283FE /* LLLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLLayout.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				3FB8AD701EA7038700B283FE /* LLRemindView.swift */,
 				3FB8AD601EA6F06F00B283FE /* LLUIImageScale.swift */,
 				3FB8AD621EA6F06F00B283FE /* LLLayout.swift */,
+				3F90DEED1EB20D0700ACA5EA /* LLAssetManager.swift */,
 				3F1948BF1EA724FB00C77926 /* LLPhotoBrowser.bundle */,
 			);
 			path = Class;
@@ -269,6 +272,7 @@
 				3FB8AD691EA6F06F00B283FE /* LLPhotoBrowserViewController.swift in Sources */,
 				3FB8AD6F1EA6F06F00B283FE /* LLBrowserActionSheet.swift in Sources */,
 				3F84DD101EA06F2D00C5ADF9 /* LLCollectionViewController.swift in Sources */,
+				3F90DEEE1EB20D0700ACA5EA /* LLAssetManager.swift in Sources */,
 				3F84DD131EA077F300C5ADF9 /* LLCollectionViewCell.swift in Sources */,
 				3F31975D1E9F15AC005FD654 /* AppDelegate.swift in Sources */,
 				3FB8AD6D1EA6F06F00B283FE /* LLBrowserLoadingImageView.swift in Sources */,

@@ -78,7 +78,7 @@ open class LLRemindView: UIView {
         remindLabel?.text = content
         
         remindIcon?.ll_updateFrameInSuperviewCenterWithSize(size: CGSize.init(width: size.width + 20.0, height: 30))
-        remindIcon?.image = UIImage.init(named: "LLPhotoBrowser.bundle/ll_error")
+        remindIcon?.image = LLAssetManager.image("ll_error")
         self.alpha = 0
         UIView.animate(withDuration: 0.3) {
             self.alpha = 1
