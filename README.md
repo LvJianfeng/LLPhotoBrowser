@@ -1,4 +1,4 @@
-# Swift 3 图片浏览工具
+<img src= "https://github.com/LvJianfeng/LLPhotoBrowser/blob/master/logo.png">
 
 [![License](https://img.shields.io/cocoapods/l/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
 [![Platform](https://img.shields.io/cocoapods/p/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
