@@ -63,7 +63,7 @@ browser.presentBrowserViewController()
 
 ## Update
 请使用最新版本 1.0.3
-修复Pod后提示性图片不显示
+
 版本信息 | 更新描述
 ----    |  ------
 1.0.3   | * 修复Pod后提示性图片不显示
