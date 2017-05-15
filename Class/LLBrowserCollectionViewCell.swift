@@ -11,7 +11,7 @@ import UIKit
 typealias BrowserCollectionViewCellTapClosure = (_ browserCell: LLBrowserCollectionViewCell) -> Void
 typealias BrowserCollectionViewCellLongPressClosure = (_ browserCell: LLBrowserCollectionViewCell) -> Void
 
-class LLBrowserCollectionViewCell: UICollectionViewCell {
+open class LLBrowserCollectionViewCell: UICollectionViewCell {
     // Scroll View
     var zoomScrollView: LLBrowserZoomScrollView? = nil
     
@@ -29,7 +29,7 @@ class LLBrowserCollectionViewCell: UICollectionViewCell {
         createCell()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

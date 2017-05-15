@@ -261,7 +261,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         
     }
     
-    func loadBrowserImagerWithModel(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, imageFrame: CGRect) {
+    open func loadBrowserImagerWithModel(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, imageFrame: CGRect) {
     
     }
     

@@ -62,10 +62,11 @@ browser.presentBrowserViewController()
 ```
 
 ## Update
-请使用最新版本 1.0.3
+请使用最新版本 1.0.4
 
 版本信息 | 更新描述
 ----    |  ------
+1.0.4   | * Add Open
 1.0.3   | * 修复Pod后提示性图片不显示
 1.0.2   | * 增加图片中二维码检测，目前仅支持单个链接二维码
 1.0.1   | * 增加支持网络图，本地图，UIImage同时使用<br>* HTTPString, UIImage, 文件名称String

@@ -20,7 +20,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func loadBrowserImagerWithModel(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, imageFrame: CGRect) {
+    override open func loadBrowserImagerWithModel(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, imageFrame: CGRect) {
         // Check Network Image
         if let _ = item.image {
             self.isFirstOpen = false
@@ -39,7 +39,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
     }
     
     // Show Big Pictrue
-    func showBigImage(imageView: UIImageView, item: LLBrowserModel, rect: CGRect) {
+    open func showBigImage(imageView: UIImageView, item: LLBrowserModel, rect: CGRect) {
         // Cancel Request
         imageView.kf.cancelDownloadTask()
         // Disk Or Mem
@@ -65,7 +65,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
     }
     
     // Load Big Picture
-    func loadBigImageWithItem(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, rect: CGRect) {
+    open func loadBigImageWithItem(item: LLBrowserModel, cell: LLBrowserCollectionViewCell, rect: CGRect) {
         let imageView = cell.zoomScrollView?.zoomImageView
         // Check is need use kf
         if let itemImage = item.image {
@@ -111,7 +111,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
     }
     
     // If Big Image Frame = nil , Reload Image Frame
-    func getBigImageFrameIfIsNil(rect: CGRect, image: UIImage) -> CGRect{
+    open func getBigImageFrameIfIsNil(rect: CGRect, image: UIImage) -> CGRect{
         if rect.isEmpty {
             return image.getBigImageSizeWithScreenWidth(w: self.screenWidth, h: self.screenHeight)
         }
