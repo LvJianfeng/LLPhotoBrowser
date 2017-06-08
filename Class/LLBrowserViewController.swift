@@ -392,11 +392,11 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
             }
         }
         
-        guard (sheetTitileArray?.count)! > 0 else {
+        guard let titleArray = sheetTitileArray, titleArray.count > 0 else {
             return
         }
         
-        guard didActionSheetSelected != nil else {
+        guard let _ = didActionSheetSelected else {
             print("注意注意：既然存在ActionSheetTitle，就必须实现点击哦～～～～")
             return
         }
