@@ -33,12 +33,52 @@ open class LLBrowserActionSheet: UIView, UITableViewDelegate, UITableViewDataSou
     /// Cell Height
     fileprivate var tableCellHeight: CGFloat?
     
+    ///  Section View Background Color default: 191.0 191.0 191.0
+    fileprivate var sectionViewBackgroundColor: UIColor? = UIColor.init(red: 191.0/255.0, green: 191.0/255.0, blue: 191.0/255.0, alpha: 1.0)
+    
+    /// Cell Background Color
+    fileprivate var cellBackgroundColor: UIColor? = UIColor.white
+    
+    /// Title Font
+    fileprivate var titleFont: UIFont? = UIFont.systemFont(ofSize: 14.0)
+    
+    /// Title Color
+    fileprivate var titleTextColor: UIColor? = UIColor.black
+    
+    /// Cancel Color
+    fileprivate var cancelTextColor: UIColor? = UIColor.black
+    
+    /// Line Color
+    fileprivate var lineColor: UIColor? = UIColor.init(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+    
     /// Init
-    init(titleArray: [String] = [], cancelTitle: String, cellHeight: CGFloat = 44.0, didSelectedCell:LLDidSelectedCell? = nil) {
+    init(titleArray: [String] = [], cancelTitle: String, cellHeight: CGFloat? = 44.0, backgroundColor: UIColor?, cellBackgroundColor: UIColor, titleFont: UIFont?, titleTextColor: UIColor?, cancelTextColor: UIColor?, lineColor: UIColor?, didSelectedCell:LLDidSelectedCell? = nil) {
         super.init(frame: CGRect.zero)
         self.titleArray = titleArray
         self.cancelTitle = cancelTitle
         self.tableCellHeight = cellHeight
+        
+        if let _ = backgroundColor {
+           self.sectionViewBackgroundColor = backgroundColor
+        }
+        
+        if let _ = titleFont {
+            self.titleFont = titleFont
+        }
+        
+        if let _ = titleTextColor {
+            self.titleTextColor = titleTextColor
+        }
+        
+        if let _ = cancelTextColor {
+            self.cancelTextColor = cancelTextColor
+        }
+        
+        if let _ = lineColor {
+            self.lineColor = lineColor
+        }
+        
+        self.cellBackgroundColor = cellBackgroundColor
         self.tableViewHeight = CGFloat((self.titleArray?.count)! + 1) * self.tableCellHeight! + 10.0
         self.didSelectedAction = didSelectedCell
         
@@ -77,7 +117,7 @@ open class LLBrowserActionSheet: UIView, UITableViewDelegate, UITableViewDataSou
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             let view = UIView.init()
-            view.backgroundColor = UIColor.init(red: 191.0/255.0, green: 191.0/255.0, blue: 191.0/255.0, alpha: 1.0)
+            view.backgroundColor = sectionViewBackgroundColor!
             return view
         }
         return nil
@@ -85,6 +125,10 @@ open class LLBrowserActionSheet: UIView, UITableViewDelegate, UITableViewDataSou
     
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableCellHeight!
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +141,11 @@ open class LLBrowserActionSheet: UIView, UITableViewDelegate, UITableViewDataSou
         if cell == nil {
             cell = LLBrowserActionSheetCell.init(style: .default, reuseIdentifier: identifier)
         }
+        cell?.backgroundColor = cellBackgroundColor!
         cell?.titleLabel?.frame = CGRect.init(x: 0, y: 0, width: ll_w, height: tableCellHeight!)
+        cell?.titleLabel?.font = titleFont!
+        cell?.titleLabel?.textColor = titleTextColor!
+        cell?.bottomLine?.backgroundColor = lineColor!
         cell?.bottomLine?.isHidden = true
         if indexPath.section == 0 {
             cell?.titleLabel?.text = titleArray?[indexPath.row]
@@ -106,6 +154,7 @@ open class LLBrowserActionSheet: UIView, UITableViewDelegate, UITableViewDataSou
                 cell?.bottomLine?.isHidden = false
             }
         }else{
+            cell?.titleLabel?.textColor = cancelTextColor!
             cell?.titleLabel?.text = cancelTitle
         }
         

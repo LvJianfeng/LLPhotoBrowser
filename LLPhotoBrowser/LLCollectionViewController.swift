@@ -18,37 +18,37 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
     fileprivate var browser: LLPhotoBrowserViewController?
     
     /// 1.0.0 数据源
-    let bigUrlArray1_0_0  = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
-                        "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303245992681.jpg",
-                        "http://car1.autoimg.cn/upload/spec/8550/1024x0_1_q87_20110604123334815123.jpg",
-                        "http://car0.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144828435240.jpg",
-                        "http://car1.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144819544240.jpg",
-                        "http://img.bizhi.sogou.com/images/2015/05/25/1181600.jpg",
-                        "http://img.bizhi.sogou.com/images/2014/10/17/921510.jpg",
-                        "http://img1b.xgo-img.com.cn/pics/2130/b2129617.jpg",
-                        "http://img1a.xgo-img.com.cn/pics/2153/b2152556.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140826/3-140R6142K1.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5163J8.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5143303.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5142J3.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5115546.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3143405.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3141504.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3105544.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/140823/4-140R3103I0.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141104/3-141104100544.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103113411.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103102347.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103094202.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103102212.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103095639.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031144339.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031144104.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031141938.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141031/1-141031112U4.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141030/3-141030104145.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141027/3-14102F95609.jpg",
-                        "http://4493bz.1985t.com/uploads/allimg/141024/3-141024105111.jpg"]
+//    let bigUrlArray1_0_0  = [ "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
+//                        "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303245992681.jpg",
+//                        "http://car1.autoimg.cn/upload/spec/8550/1024x0_1_q87_20110604123334815123.jpg",
+//                        "http://car0.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144828435240.jpg",
+//                        "http://car1.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144819544240.jpg",
+//                        "http://img.bizhi.sogou.com/images/2015/05/25/1181600.jpg",
+//                        "http://img.bizhi.sogou.com/images/2014/10/17/921510.jpg",
+//                        "http://img1b.xgo-img.com.cn/pics/2130/b2129617.jpg",
+//                        "http://img1a.xgo-img.com.cn/pics/2153/b2152556.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140826/3-140R6142K1.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5163J8.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5143303.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5142J3.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140825/3-140R5115546.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3143405.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3141504.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140823/3-140R3105544.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/140823/4-140R3103I0.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141104/3-141104100544.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103113411.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103102347.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103094202.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103102212.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141103/3-141103095639.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031144339.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031144104.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141031/4-141031141938.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141031/1-141031112U4.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141030/3-141030104145.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141027/3-14102F95609.jpg",
+//                        "http://4493bz.1985t.com/uploads/allimg/141024/3-141024105111.jpg"]
     
     /// 1.0.1 数据源
     let bigUrlArray1_0_1: [Any?] = [ "taobao",
@@ -172,6 +172,14 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
             }
             
         }
+        
+        // ActionSheet Custom
+        // browser?.actionSheetCellBackgroundColor = UIColor.brown
+        // browser?.actionSheetBackgroundColor = UIColor.red
+        // browser?.actionSheetCellHeight = 50
+        // browser?.actionSheetCancelTextColor = UIColor.yellow
+        // browser?.actionSheetCancelTitle = "Cancel"
+        
         browser?.presentBrowserViewController()
     }
 

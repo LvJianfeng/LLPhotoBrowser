@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 public typealias LLDidActionSheetAction = (NSInteger, UIImageView, String?) -> Void
 
@@ -102,7 +101,32 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     /// Space
     fileprivate let browserSpace: CGFloat = 20.0
+    
+    /// Custom ActionSheet Style
+    /// Background Color
+    open var actionSheetBackgroundColor: UIColor?
+    
+    /// Cell Height default 44.0
+    open var actionSheetCellHeight: CGFloat? = 44.0
+    
+    /// Cell Background Color default white
+    open var actionSheetCellBackgroundColor: UIColor? = UIColor.white
+    
+    /// Title Font
+    open var actionSheetTitleFont: UIFont? = UIFont.systemFont(ofSize: 15.0)
+    
+    /// Title Color
+    open var actionSheetTitleTextColor: UIColor? = UIColor.black
 
+    /// Cancel Color
+    open var actionSheetCancelTextColor: UIColor? = UIColor.black
+    
+    /// Cancel Title
+    open var actionSheetCancelTitle: String? = "取消"
+    
+    /// Line Color
+    open var actionSheetLineColor: UIColor? = UIColor.init(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+    
     /// Init With Data
     public init(photoArray: [LLBrowserModel], currentIndex: NSInteger, sheetTitileArray: [String]? = nil, isOpenQRCodeCheck: Bool = false, didActionSheet: LLDidActionSheetAction? = nil) {
         self.photoArray = photoArray
@@ -304,7 +328,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
             backView?.frame = CGRect.init(x: 0, y: 0, width: k_LL_ScreenWidth, height: k_LL_ScreenHeight)
             currentIndexLabel?.frame = CGRect.init(x: 0, y: screenHeight - 50, width: screenWidth, height: 50)
             remindView?.frame = CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight)
-            if browserActionSheet != nil {
+            if let _ = browserActionSheet {
                 browserActionSheet?.updateFrameByTransform()
             }
             collectView?.collectionViewLayout.invalidateLayout()
@@ -370,7 +394,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     // MARK: Long Press
     func longPress(cell: LLBrowserCollectionViewCell) {
-        if browserActionSheet != nil {
+        if let _ = browserActionSheet {
             browserActionSheet?.removeFromSuperview()
             browserActionSheet = nil
         }
@@ -401,9 +425,12 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
             return
         }
         
-        browserActionSheet = LLBrowserActionSheet.init(titleArray: sheetTitileArray!, cancelTitle: "取消", didSelectedCell: { [weak self] (index) in
-            self?.didActionSheetSelected!(index, (cell.zoomScrollView?.zoomImageView)!, qrcodeString)
-        })
+        browserActionSheet = LLBrowserActionSheet.init(titleArray: sheetTitileArray!, cancelTitle: actionSheetCancelTitle!, cellHeight: actionSheetCellHeight!,backgroundColor: actionSheetBackgroundColor, cellBackgroundColor: actionSheetCellBackgroundColor!, titleFont: actionSheetTitleFont!, titleTextColor: actionSheetTitleTextColor!, cancelTextColor: actionSheetCancelTextColor!, lineColor: actionSheetLineColor!, didSelectedCell:
+            { [weak self] (index) in
+            
+                self?.didActionSheetSelected!(index, (cell.zoomScrollView?.zoomImageView)!, qrcodeString)
+        
+            })
         browserActionSheet?.show(backView!)
     }
     
