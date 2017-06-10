@@ -112,19 +112,19 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     /// Cell Background Color default white
     open var actionSheetCellBackgroundColor: UIColor? = UIColor.white
     
-    /// Title Font
+    /// Title Font default UIFont.systemFont(ofSize: 15.0)
     open var actionSheetTitleFont: UIFont? = UIFont.systemFont(ofSize: 15.0)
     
-    /// Title Color
+    /// Title Color default black
     open var actionSheetTitleTextColor: UIColor? = UIColor.black
 
-    /// Cancel Color
+    /// Cancel Color default black
     open var actionSheetCancelTextColor: UIColor? = UIColor.black
     
-    /// Cancel Title
+    /// Cancel Title default 取消
     open var actionSheetCancelTitle: String? = "取消"
     
-    /// Line Color
+    /// Line Color default 212.0 212.0 212.0
     open var actionSheetLineColor: UIColor? = UIColor.init(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
     
     /// Init With Data

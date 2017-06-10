@@ -66,6 +66,7 @@ browser.presentBrowserViewController()
 
 版本信息 | 更新描述
 ----    |  ------
+1.0.6   | * 增加ActionSheet的自定义样式
 1.0.5   | * 修复不使用长按后的闪退问题
 1.0.4   | * Add Open
 1.0.3   | * 修复Pod后提示性图片不显示
@@ -144,6 +145,30 @@ let browser = LLPhotoBrowserViewController.init(photoArray: data, currentIndex: 
 browser.presentBrowserViewController()
 ```
 
+### 开放ActionSheet自定义1.0.6
+
+```swift
+/// Cell Height default 44.0
+open var actionSheetCellHeight: CGFloat? = 44.0
+
+/// Cell Background Color default white
+open var actionSheetCellBackgroundColor: UIColor? = UIColor.white
+
+/// Title Font default UIFont.systemFont(ofSize: 15.0)
+open var actionSheetTitleFont: UIFont? = UIFont.systemFont(ofSize: 15.0)
+
+/// Title Color default black
+open var actionSheetTitleTextColor: UIColor? = UIColor.black
+
+/// Cancel Color default black
+open var actionSheetCancelTextColor: UIColor? = UIColor.black
+
+/// Cancel Title default 取消
+open var actionSheetCancelTitle: String? = "取消"
+
+/// Line Color default 212.0 212.0 212.0
+open var actionSheetLineColor: UIColor? = UIColor.init(red: 212.0/255.0, green: 212.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+```
 <!-- ## Future -->
 
 ## Example
