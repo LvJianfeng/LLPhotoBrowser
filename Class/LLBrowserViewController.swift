@@ -348,13 +348,25 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     // MARK: Tap
     func tap(cell: LLBrowserCollectionViewCell) {
+        
+        let indexPath = collectView?.indexPath(for: cell)
+        
+        guard let _ = indexPath else {
+            self.view.alpha = 0.0
+            self.dismiss(animated: false, completion: nil)
+            return
+        }
+        
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         view.backgroundColor = UIColor.clear
+        
         // Background Color
         collectView?.backgroundColor = UIColor.clear
         collectView?.isUserInteractionEnabled = false
+        
         // Status Bar
         setNeedsStatusBarAppearanceUpdate()
+        
         let cellArray = collectView?.visibleCells
         for lcell in cellArray! {
             (lcell as! LLBrowserCollectionViewCell).loadingView?.stopAnimating()
@@ -362,7 +374,6 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         currentIndexLabel?.removeFromSuperview()
         currentIndexLabel = nil
         
-        let indexPath = collectView?.indexPath(for: cell)
         cell.zoomScrollView?.zoomScale = 1.0
         let item = photoArray?[(indexPath?.row)!]
         
