@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
 
 ## Download
-由于当前仓库存在gif图，下载包较大，请点击下面的【下载源代码】极速下载哦。
+由于当前仓库存在gif图，下载包较大，请点击下面的【下载源代码】极速下载哦，源代码下载方[码云](https://gitee.com/OOJianfeng/LLPhotoBrowser)
 
 👉 ⏬ [下载源代码](https://gitee.com/OOJianfeng/LLPhotoBrowser/repository/archive/master.zip) ⏬
 
