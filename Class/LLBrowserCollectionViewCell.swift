@@ -58,7 +58,7 @@ open class LLBrowserCollectionViewCell: UICollectionViewCell {
     }
     
     
-    func longPressGesture(gesture: UILongPressGestureRecognizer) {
+    @objc func longPressGesture(gesture: UILongPressGestureRecognizer) {
         if let longPressAction = longPressClosure {
             if gesture.state == .began {
                 longPressAction(self)

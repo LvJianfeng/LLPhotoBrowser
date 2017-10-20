@@ -62,10 +62,11 @@ browser.presentBrowserViewController()
 ```
 
 ## Update
-请使用最新版本 1.0.7
 
 版本信息 | 更新描述
 ----    |  ------
+1.0.9   | * Swift 4
+1.0.8   | * Swift 3
 1.0.7   | * 修复单击退出时的快速滚动崩溃错误
 1.0.6   | * 增加ActionSheet的自定义样式
 1.0.5   | * 修复不使用长按后的闪退问题
@@ -77,7 +78,9 @@ browser.presentBrowserViewController()
 
 ## CocoaPods
 
-- Add `pod "LLPhotoBrowser"` to your Podfile.
+- Add `pod 'LLPhotoBrowser'` to your Podfile.
+  - Swift 3 `pod 'LLPhotoBrowser', '1.0.8'`
+  - Swift 4 `pod 'LLPhotoBrowser'` 或者 `pod 'LLPhotoBrowser', '~> 1.0.9'`
 - Run `pod install` or `pod update`.
 - Add `import LLPhotoBrowser`
 
