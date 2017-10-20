@@ -55,11 +55,12 @@ class LLBrowserZoomScrollView: UIScrollView, UIScrollViewDelegate {
         var rect = zoomImageView?.frame
         rect?.origin.x = 0
         rect?.origin.y = 0
+        
         if (rect?.size.width)! < ll_w {
-            rect?.origin.x = CGFloat(floorf(Float((ll_w - (rect?.size.width)!) * 0.5)))
+            rect!.origin.x = CGFloat(floorf(Float((ll_w - (rect?.size.width)!) * 0.5)))
         }
         if (rect?.size.height)! < ll_h {
-            rect?.origin.y = CGFloat(floorf(Float((ll_h - (rect?.size.height)!) * 0.5)))
+            rect!.origin.y = CGFloat(floorf(Float((ll_h - (rect?.size.height)!) * 0.5)))
         }
         zoomImageView?.frame = rect!
     }
@@ -84,7 +85,7 @@ class LLBrowserZoomScrollView: UIScrollView, UIScrollViewDelegate {
     }
     
     /// Single Click
-    func singleTapClick() {
+    @objc func singleTapClick() {
         isSingleTap = true
         if let closure = zoomScrollViewTapClosure {
             closure()

@@ -299,7 +299,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     }
    
     // Device Change
-    func deviceOrientationDidChange(notification: NSNotification) {
+    @objc func deviceOrientationDidChange(notification: NSNotification) {
         let orientation = UIDevice.current.orientation
         if orientation == .portrait || orientation == .landscapeLeft || orientation == .landscapeRight {
             isRotate = true
@@ -422,7 +422,8 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
                 }
             }else{
                 if (sheetTitileArray?.contains(k_LL_QRCodeTitle))! {
-                    sheetTitileArray?.remove(at: (sheetTitileArray?.index(of: k_LL_QRCodeTitle))!)
+                    let index = sheetTitileArray?.index(of: k_LL_QRCodeTitle)
+                    sheetTitileArray?.remove(at: index!)
                 }
             }
         }
@@ -457,7 +458,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         self.perform(#selector(hide), with: nil, afterDelay: 1.2)
     }
     
-    func hide() {
+    @objc func hide() {
         remindView?.hide()
     }
     
