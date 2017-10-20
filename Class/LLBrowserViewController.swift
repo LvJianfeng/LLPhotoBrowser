@@ -424,10 +424,6 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
                 if (sheetTitileArray?.contains(k_LL_QRCodeTitle))! {
                     let index = sheetTitileArray?.index(of: k_LL_QRCodeTitle)
                     sheetTitileArray?.remove(at: index!)
-<<<<<<< HEAD
-
-=======
->>>>>>> ccb202e4de493f4dc4a73302c34297a4f30d5968
                 }
             }
         }
