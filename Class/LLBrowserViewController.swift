@@ -422,7 +422,9 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
                 }
             }else{
                 if (sheetTitileArray?.contains(k_LL_QRCodeTitle))! {
-                    sheetTitileArray?.remove(at: (sheetTitileArray?.index(of: k_LL_QRCodeTitle))!)
+                    let index = sheetTitileArray?.index(of: k_LL_QRCodeTitle)
+                    sheetTitileArray?.remove(at: index!)
+
                 }
             }
         }
