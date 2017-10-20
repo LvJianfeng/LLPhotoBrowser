@@ -3,6 +3,11 @@
 [![License](https://img.shields.io/cocoapods/l/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
 [![Platform](https://img.shields.io/cocoapods/p/LLPhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/LLPhotoBrowser)
 
+## Download
+由于当前仓库存在gif图，下载包较大，请点击下面的【下载源代码】极速下载哦。
+
+👉 ⏬ [下载源代码](https://gitee.com/OOJianfeng/LLPhotoBrowser/repository/archive/master.zip) ⏬
+
 ## Support
 
 * 支持识别二维码
