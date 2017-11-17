@@ -53,7 +53,7 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
     /// 1.0.1 数据源
     let bigUrlArray1_0_1: [Any?] = [ "taobao",
                                      "baidu",
-                        "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
+                        "https://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303265437981.jpg",
                         "http://car0.autoimg.cn/upload/spec/5900/1024x0_1_q87_2011071303245992681.jpg",
                         "http://car1.autoimg.cn/upload/spec/8550/1024x0_1_q87_20110604123334815123.jpg",
                         "http://car0.autoimg.cn/upload/spec/6032/1024x0_1_q87_20101125144828435240.jpg",
@@ -94,7 +94,7 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = UIColor.white
         // Register cell classes
         self.collectionView?.register(UINib.init(nibName: "LLCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier )
     
@@ -180,7 +180,8 @@ class LLCollectionViewController: UIViewController, UICollectionViewDelegate, UI
         // browser?.actionSheetCancelTextColor = UIColor.yellow
         // browser?.actionSheetCancelTitle = "Cancel"
         
-        browser?.presentBrowserViewController()
+//        browser?.presentBrowserViewController()
+        self.present(browser!, animated: true, completion: nil)
     }
 
     @IBAction func clear(_ sender: Any) {

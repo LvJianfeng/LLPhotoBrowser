@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LLPhotoBrowser"
-  s.version      = "1.0.9"
+  s.version      = "1.1.0"
   s.summary      = "Swift 3&4 图片浏览工具"
   s.homepage     = "https://github.com/LvJianfeng/LLPhotoBrowser"
   s.license      = "MIT"

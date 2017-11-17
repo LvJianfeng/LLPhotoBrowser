@@ -13,6 +13,8 @@ public typealias LLDidActionSheetAction = (NSInteger, UIImageView, String?) -> V
 let k_LL_ScreenWidth = UIScreen.main.bounds.size.width
 let k_LL_ScreenHeight = UIScreen.main.bounds.size.height
 let k_LL_QRCodeTitle = "识别图中二维码"
+let presentAnimator = LLPresentAnimator()
+let dismissAnimator = LLDismissAnimator()
 
 /// Image Object
 open class LLBrowserModel: NSObject {
@@ -33,14 +35,53 @@ open class LLBrowserModel: NSObject {
         }
     }
     
+    // Thumbnail Data
+    open var thumbnailData: Any? = nil {
+        didSet {
+            if thumbnailData is UIImage {
+                thumbnailImage = thumbnailData as? UIImage
+            }else if thumbnailData is String {
+                if (thumbnailData as! String).hasPrefix("http") {
+                    thumbnailURL = thumbnailData as? String
+                }else{
+                    thumbnailImage = UIImage.init(named: thumbnailData as! String)
+                }
+            }else{
+                thumbnailImage = LLAssetManager.image("ll_placeholder")
+            }
+        }
+        
+    }
+    
     // URL
-    open var imageURL: String? = nil
+    open var imageURL: String? = nil {
+        didSet {
+            if let url = imageURL {
+                isHttpsURL = url.hasPrefix("https")
+            }
+        }
+    }
     
     // Image
     open var image: UIImage?  = nil
     
+    // Thumbnail URL
+    open var thumbnailURL: String? = nil {
+        didSet {
+            if let url = thumbnailURL {
+                isHttpsURL = url.hasPrefix("https")
+            }
+        }
+    }
+    
+    // Thumbnail
+    open var thumbnailImage: UIImage? = nil
+    
     // Source Image
     open var sourceImageView: UIImageView? = nil
+    
+    // IS Https
+    open var isHttpsURL: Bool = false
 }
 
 /// Browser View Controller
@@ -78,11 +119,14 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     /// Can Use QRCode Default false
     fileprivate var isOpenQRCodeCheck: Bool = false
     
-    /// Collection View
-    open var collectView: UICollectionView?
-    
     /// Background View
     fileprivate var backView: UIView?
+    
+    /// History Image Rect Frame
+    fileprivate var onceImageViewHistoryRect: CGRect
+    
+    /// Collection View
+    open var collectView: UICollectionView?
     
     /// Remind View
     open var remindView: LLRemindView?
@@ -141,8 +185,15 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         self.verticalBigRectArray = []
         self.horizontalBigRectArray = []
         self.didActionSheetSelected = didActionSheet
+        self.onceImageViewHistoryRect = CGRect.zero
         
         super.init(nibName: nil, bundle: nil)
+        
+        // UIViewControllerTransitioningDelegate
+        self.transitioningDelegate = self
+        
+        // UIModalPresentationStyle
+        self.modalPresentationStyle = .custom
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -154,18 +205,9 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         NSObject.cancelPreviousPerformRequests(withTarget: self)
     }
     
-    // Show ViewController
-    open func presentBrowserViewController() {
-        let rootViewController = UIApplication.shared.keyWindow?.rootViewController
-        // Present
-        rootViewController?.present(self, animated: false, completion: nil)
-    }
-    
     // View Did Load
     override open func viewDidLoad() {
         super.viewDidLoad()
-        // PresentationStyle
-        modalPresentationStyle = .overCurrentContext
         // Init Data
         initData()
         createBrowserView()
@@ -198,7 +240,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
     
     // Create
     func createBrowserView() {
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.clear
         // Back View
         backView = UIView.init(frame: self.view.bounds)
         backView?.backgroundColor = UIColor.clear
@@ -220,7 +262,7 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         collectView?.bounces = false
         collectView?.showsVerticalScrollIndicator = false
         collectView?.showsHorizontalScrollIndicator = false
-        collectView?.backgroundColor = UIColor.black
+        collectView?.backgroundColor = UIColor.clear
         collectView?.register(LLBrowserCollectionViewCell.self, forCellWithReuseIdentifier: "LLBrowserCollectionViewCell")
         collectView?.contentOffset = CGPoint.init(x: CGFloat(currentIndex) * (screenWidth + browserSpace), y: 0)
         backView?.addSubview(collectView!)
@@ -377,30 +419,32 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
         cell.zoomScrollView?.zoomScale = 1.0
         let item = photoArray?[(indexPath?.row)!]
         
+        var transform = CGAffineTransform(rotationAngle: 0)
+        if currentOrientation == .landscapeLeft {
+            transform = CGAffineTransform(rotationAngle:CGFloat(-Double.pi / 2))
+        }else if currentOrientation == .landscapeRight{
+            transform = CGAffineTransform(rotationAngle:CGFloat(Double.pi / 2))
+        }
+        
         if let smallImageView = item?.sourceImageView {
             var rect = getFrameInWindow(view: smallImageView)
-            var transform = CGAffineTransform(rotationAngle: 0)
             if currentOrientation == .landscapeLeft {
-                transform = CGAffineTransform(rotationAngle:CGFloat(-Double.pi / 2))
                 rect = CGRect.init(x: rect.origin.y, y: k_LL_ScreenWidth - rect.size.width - rect.origin.x, width: rect.size.height, height: rect.size.width)
             }else if currentOrientation == .landscapeRight{
-                transform = CGAffineTransform(rotationAngle:CGFloat(Double.pi / 2))
                 rect = CGRect.init(x: k_LL_ScreenHeight - rect.size.height - rect.origin.y, y: rect.origin.x, width: rect.size.height, height: rect.size.width)
             }
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                cell.zoomScrollView?.zoomImageView?.transform = transform
-                cell.zoomScrollView?.zoomImageView?.frame = rect
-            }, completion: { (finished) in
-                self.dismiss(animated: false, completion: nil)
-            })
+            // Record
+            onceImageViewHistoryRect = rect
         }else{
-            UIView.animate(withDuration: 0.1, animations: { 
-                self.view.alpha = 0.0
-            }, completion: { (finished) in
-                self.dismiss(animated: false, completion: nil)
-            })
+            onceImageViewHistoryRect = CGRect.init(x: k_LL_ScreenWidth * 0.5, y: k_LL_ScreenHeight * 0.5, width: 0, height: 0)
         }
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            cell.zoomScrollView?.zoomImageView?.transform = transform
+            cell.zoomScrollView?.zoomImageView?.frame = self.onceImageViewHistoryRect
+        }, completion: { (finished) in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     // MARK: Long Press
@@ -471,5 +515,16 @@ open class LLBrowserViewController: UIViewController, UICollectionViewDelegate, 
             return feature.messageString ?? nil
         }
         return nil
+    }
+}
+
+extension LLBrowserViewController {
+    
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentAnimator
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissAnimator
     }
 }

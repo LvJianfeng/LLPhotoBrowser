@@ -29,7 +29,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
             // Stop Loading
             cell.loadingView?.stopAnimating()
             // Check Cache Image
-            if ImageCache.default.isImageCached(forKey: item.imageURL!).cached {
+            if ImageCache.default.imageCachedType(forKey: item.imageURL!).cached {
                 showBigImage(imageView: (cell.zoomScrollView?.zoomImageView)!, item: item, rect: imageFrame)
             }else{
                 self.isFirstOpen = false
@@ -43,7 +43,7 @@ open class LLPhotoBrowserViewController: LLBrowserViewController {
         // Cancel Request
         imageView.kf.cancelDownloadTask()
         // Disk Or Mem
-        let option = ImageCache.default.isImageCached(forKey: item.imageURL!).cacheType
+        let option = ImageCache.default.imageCachedType(forKey: item.imageURL!)
         // If Exist
         if option == .disk {
             imageView.image = ImageCache.default.retrieveImageInDiskCache(forKey: item.imageURL!)

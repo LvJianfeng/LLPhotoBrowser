@@ -52,11 +52,11 @@ open class LLRemindView: UIView {
     
     func getSize(_ text: String?) -> CGSize{
         var temp = text
-        if (temp?.characters.count)! <= 0 || text == nil{
+        if (temp?.count)! <= 0 || text == nil{
             temp = "发生未知错误"
         }
-        return (temp! as NSString).boundingRect(with: CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: remindLabel?.font ?? UIFont.systemFont(ofSize: 14)], context: nil).size
         
+        return (temp! as NSString).boundingRect(with: CGSize.init(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height), options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: remindLabel?.font ?? UIFont.systemFont(ofSize: 14)], context: nil).size
     }
     
     func show(_ content: String? = nil) {

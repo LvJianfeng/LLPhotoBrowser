@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Class/LLBrowserViewController.swift"
-            timestampString = "530177963.76934"
+            timestampString = "532593523.848263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
             landmarkName = "longPress(cell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Class/LLBrowserViewController.swift"
-            timestampString = "530177963.769717"
+            timestampString = "532593523.848608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "414"
-            endingLineNumber = "414"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "longPress(cell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,13 +250,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Class/LLBrowserViewController.swift"
-            timestampString = "530177963.769952"
+            timestampString = "532593523.848931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
-            landmarkName = "longPress(cell:)"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "tap(cell:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LLPhotoBrowser.LLBrowserViewController.tap(cell: LLPhotoBrowser.LLBrowserCollectionViewCell) -&gt; ()"
+                  moduleName = "LLPhotoBrowser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/awakennull/Documents/Other%20Projects/LLPhotoBrowser/Class/LLBrowserViewController.swift"
+                  timestampString = "532590919.572124"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "441"
+                  endingLineNumber = "441"
+                  offsetFromSymbolStart = "3660">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box, Arg[2] = Value Promoted from Box&gt; of closure #1 () -&gt; () in LLPhotoBrowser.LLBrowserViewController.tap(cell: LLPhotoBrowser.LLBrowserCollectionViewCell) -&gt; ()"
+                  moduleName = "LLPhotoBrowser"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/awakennull/Documents/Other%20Projects/LLPhotoBrowser/Class/LLBrowserViewController.swift"
+                  timestampString = "532590919.573732"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "442"
+                  endingLineNumber = "442"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -266,12 +298,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Class/LLBrowserViewController.swift"
-            timestampString = "530177963.770178"
+            timestampString = "532593523.849431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "longPress(cell:)"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
+            landmarkName = "tap(cell:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Class/LLPresentAnimator.swift"
+            timestampString = "532593523.849661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Class/LLPresentAnimator.swift"
+            timestampString = "532593523.849712"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "animateTransition(using:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Class/LLPresentAnimator.swift"
+            timestampString = "532593523.849759"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "animateTransition(using:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
